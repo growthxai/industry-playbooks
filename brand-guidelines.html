@@ -1,0 +1,1582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Playbook Network — Brand Guidelines</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    /* ========================================
+       CSS CUSTOM PROPERTIES
+       Copy this block into your project.
+       ======================================== */
+    :root {
+      /* Primary Palette */
+      --playbook-navy: #1B2B4B;
+      --playbook-navy-light: #2A3F6B;
+      --warm-white: #FAF9F7;
+      --ink: #1A1A2E;
+      --growthx-green: #28A745;
+
+      /* Extended Palette */
+      --navy-ghost: #F0F2F7;
+      --navy-pale: #E1E5EF;
+      --ink-muted: #5A5A6E;
+      --ink-faint: #9A9AAE;
+      --success: #28A745;
+      --warning: #D4953A;
+      --error: #C74B4B;
+      --white: #FFFFFF;
+
+      /* Industry Accent Colors */
+      --accent-construction: #D97706;
+      --accent-accounting: #2563EB;
+      --accent-wealth: #065F46;
+      --accent-healthcare: #0891B2;
+      --accent-educators: #7C3AED;
+      --accent-realestate: #B91C1C;
+
+      /* Typography */
+      --font-display: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      --font-mono: 'JetBrains Mono', 'SF Mono', 'Fira Code', monospace;
+
+      /* Spacing */
+      --space-1: 4px;
+      --space-2: 8px;
+      --space-3: 12px;
+      --space-4: 16px;
+      --space-5: 24px;
+      --space-6: 32px;
+      --space-7: 48px;
+      --space-8: 64px;
+      --space-9: 96px;
+
+      /* Border Radius */
+      --radius-sm: 4px;
+      --radius-md: 8px;
+      --radius-lg: 12px;
+      --radius-xl: 16px;
+      --radius-pill: 999px;
+
+      /* No shadows — borders only */
+
+      /* Motion */
+      --ease-default: cubic-bezier(0.22, 1, 0.36, 1);
+      --duration-fast: 150ms;
+      --duration-normal: 200ms;
+      --duration-slow: 400ms;
+    }
+
+    /* ========================================
+       BASE STYLES
+       ======================================== */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      font-family: var(--font-display);
+      font-size: 17px;
+      line-height: 1.75;
+      color: var(--ink);
+      background: var(--warm-white);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+      html { scroll-behavior: auto; }
+    }
+
+    /* ========================================
+       NAVIGATION
+       ======================================== */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 64px;
+      background: rgba(250, 249, 247, 0.90);
+      backdrop-filter: blur(16px) saturate(1.2);
+      -webkit-backdrop-filter: blur(16px) saturate(1.2);
+      border-bottom: 1px solid var(--navy-pale);
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      padding: 0 var(--space-6);
+    }
+
+    nav .nav-inner {
+      max-width: 1200px;
+      width: 100%;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    nav .nav-brand {
+      font-weight: 800;
+      font-size: 15px;
+      color: var(--playbook-navy);
+      text-decoration: none;
+      letter-spacing: -0.5px;
+    }
+
+    nav .nav-brand span {
+      color: var(--growthx-green);
+    }
+
+    nav .nav-links {
+      display: flex;
+      gap: var(--space-2);
+      list-style: none;
+      flex-wrap: wrap;
+    }
+
+    nav .nav-links a {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--ink-muted);
+      text-decoration: none;
+      padding: 6px 12px;
+      border-radius: var(--radius-pill);
+      transition: all var(--duration-normal) ease;
+    }
+
+    nav .nav-links a:hover {
+      color: var(--playbook-navy);
+      background: var(--navy-ghost);
+    }
+
+    @media (max-width: 768px) {
+      nav .nav-links { display: none; }
+    }
+
+    /* ========================================
+       LAYOUT
+       ======================================== */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 var(--space-6);
+    }
+
+    @media (max-width: 768px) {
+      .container { padding: 0 20px; }
+    }
+
+    section {
+      padding: var(--space-9) 0;
+    }
+
+    @media (max-width: 768px) {
+      section { padding: var(--space-8) 0; }
+    }
+
+    section + section {
+      border-top: 1px solid var(--navy-pale);
+    }
+
+    /* ========================================
+       HERO
+       ======================================== */
+    .hero {
+      margin-top: 64px;
+      padding: var(--space-9) 0 var(--space-8);
+      background: var(--playbook-navy);
+      color: var(--white);
+    }
+
+    .hero h1 {
+      font-size: clamp(36px, 5vw, 64px);
+      font-weight: 800;
+      letter-spacing: -1.5px;
+      line-height: 1.1;
+      margin-bottom: var(--space-4);
+    }
+
+    .hero p {
+      font-size: 17px;
+      color: rgba(255, 255, 255, 0.7);
+      max-width: 600px;
+      line-height: 1.7;
+    }
+
+    .hero .mono-label {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--growthx-green);
+      margin-bottom: var(--space-5);
+      display: block;
+    }
+
+    /* ========================================
+       SECTION HEADERS
+       ======================================== */
+    .section-label {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--ink-faint);
+      margin-bottom: var(--space-3);
+    }
+
+    .section-title {
+      font-size: clamp(28px, 3.5vw, 42px);
+      font-weight: 800;
+      letter-spacing: -1px;
+      line-height: 1.15;
+      color: var(--playbook-navy);
+      margin-bottom: var(--space-4);
+    }
+
+    .section-desc {
+      font-size: 17px;
+      color: var(--ink-muted);
+      max-width: 640px;
+      margin-bottom: var(--space-7);
+    }
+
+    /* ========================================
+       GRIDS
+       ======================================== */
+    .grid {
+      display: grid;
+      gap: var(--space-4);
+    }
+
+    .grid-colors {
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+
+    .grid-components {
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    }
+
+    .grid-2 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .grid-3 {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media (max-width: 768px) {
+      .grid-2, .grid-3 { grid-template-columns: 1fr; }
+    }
+
+    /* ========================================
+       COLOR SWATCHES
+       ======================================== */
+    .swatch {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--navy-pale);
+      background: var(--white);
+    }
+
+    .swatch-color {
+      height: 80px;
+      display: flex;
+      align-items: flex-end;
+      padding: var(--space-3);
+    }
+
+    .swatch-info {
+      padding: var(--space-3) var(--space-4);
+    }
+
+    .swatch-name {
+      font-weight: 600;
+      font-size: 14px;
+      color: var(--ink);
+      margin-bottom: 2px;
+    }
+
+    .swatch-value {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--ink-muted);
+    }
+
+    .swatch-usage {
+      font-size: 13px;
+      color: var(--ink-faint);
+      margin-top: 4px;
+    }
+
+    /* ========================================
+       TYPE SPECIMENS
+       ======================================== */
+    .type-specimen {
+      padding: var(--space-5);
+      background: var(--white);
+      border: 1px solid var(--navy-pale);
+      border-radius: var(--radius-xl);
+      margin-bottom: var(--space-4);
+    }
+
+    .type-specimen .spec-label {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--ink-faint);
+      margin-bottom: var(--space-3);
+    }
+
+    .type-specimen .spec-meta {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--ink-muted);
+      margin-top: var(--space-3);
+      padding-top: var(--space-3);
+      border-top: 1px solid var(--navy-pale);
+    }
+
+    /* ========================================
+       COMPONENT DEMOS
+       ======================================== */
+    .demo-box {
+      padding: var(--space-6);
+      background: var(--white);
+      border: 1px solid var(--navy-pale);
+      border-radius: var(--radius-xl);
+      margin-bottom: var(--space-4);
+    }
+
+    .demo-box-dark {
+      background: var(--playbook-navy);
+      border-color: var(--playbook-navy-light);
+    }
+
+    .demo-label {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--ink-faint);
+      margin-bottom: var(--space-4);
+    }
+
+    .demo-box-dark .demo-label {
+      color: rgba(255,255,255,0.5);
+    }
+
+    /* ========================================
+       BUTTONS
+       ======================================== */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 22px;
+      border-radius: var(--radius-pill);
+      font-family: var(--font-display);
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: all var(--duration-normal) var(--ease-default);
+    }
+
+    .btn-primary {
+      background: var(--growthx-green);
+      color: var(--white);
+    }
+
+    .btn-primary:hover {
+      background: #22913C;
+      transform: translateY(-1px);
+    }
+
+    .btn-primary:active {
+      transform: translateY(0);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--playbook-navy);
+      border-color: var(--playbook-navy);
+    }
+
+    .btn-secondary:hover {
+      background: var(--playbook-navy);
+      color: var(--white);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--playbook-navy);
+      padding: 10px 12px;
+    }
+
+    .btn-ghost:hover {
+      text-decoration: underline;
+    }
+
+    /* ========================================
+       CARDS
+       ======================================== */
+    .card-article {
+      background: var(--white);
+      border: 1px solid var(--navy-pale);
+      border-radius: var(--radius-xl);
+      padding: var(--space-5);
+      transition: all var(--duration-normal) var(--ease-default);
+      cursor: pointer;
+    }
+
+    .card-article:hover {
+      transform: translateY(-2px);
+      border-color: var(--playbook-navy-light);
+    }
+
+    .card-pain {
+      background: var(--navy-ghost);
+      border-radius: var(--radius-lg);
+      padding: var(--space-5);
+    }
+
+    .card-pain-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: var(--radius-md);
+      background: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: var(--space-3);
+      font-size: 20px;
+    }
+
+    .card-pain h4 {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: var(--space-2);
+    }
+
+    .card-pain p {
+      font-size: 14px;
+      color: var(--ink-muted);
+      line-height: 1.6;
+    }
+
+    /* ========================================
+       BADGES
+       ======================================== */
+    .badge {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      padding: 4px 12px;
+      border-radius: var(--radius-pill);
+    }
+
+    .badge-foundations {
+      background: var(--navy-pale);
+      color: var(--playbook-navy);
+    }
+
+    .badge-practice {
+      background: rgba(40, 167, 69, 0.12);
+      color: #1a7a34;
+    }
+
+    .badge-code {
+      background: var(--ink);
+      color: var(--white);
+      font-family: var(--font-mono);
+    }
+
+    /* ========================================
+       CODE BLOCKS
+       ======================================== */
+    .code-block {
+      background: var(--ink);
+      color: #E8E8E8;
+      font-family: var(--font-mono);
+      font-size: 14px;
+      line-height: 1.6;
+      padding: var(--space-5);
+      border-radius: var(--radius-lg);
+      overflow-x: auto;
+      margin: var(--space-4) 0;
+    }
+
+    .code-block .comment { color: #6A6A7E; }
+    .code-block .prop { color: #7EC8E3; }
+    .code-block .val { color: #A8D8A8; }
+
+    /* ========================================
+       MOTION DEMO
+       ======================================== */
+    .motion-demo {
+      display: flex;
+      gap: var(--space-4);
+      flex-wrap: wrap;
+      margin-top: var(--space-5);
+    }
+
+    .motion-box {
+      width: 120px;
+      height: 80px;
+      background: var(--playbook-navy);
+      border-radius: var(--radius-lg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      font-family: var(--font-mono);
+      font-size: 11px;
+      cursor: pointer;
+      text-align: center;
+      padding: var(--space-2);
+    }
+
+    .motion-fade {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeSlideUp 400ms ease-out forwards;
+    }
+
+    .motion-lift {
+      transition: transform var(--duration-normal) ease, box-shadow var(--duration-normal) ease;
+    }
+
+    .motion-lift:hover {
+      transform: translateY(-4px);
+    }
+
+    .motion-press {
+      transition: transform var(--duration-fast) ease;
+    }
+
+    .motion-press:active {
+      transform: scale(0.96);
+    }
+
+    @keyframes fadeSlideUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ========================================
+       TABLES
+       ======================================== */
+    .spec-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+
+    .spec-table th {
+      text-align: left;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--ink-faint);
+      padding: var(--space-3) var(--space-4);
+      border-bottom: 2px solid var(--navy-pale);
+    }
+
+    .spec-table td {
+      padding: var(--space-3) var(--space-4);
+      border-bottom: 1px solid var(--navy-ghost);
+      color: var(--ink-muted);
+    }
+
+    .spec-table td:first-child {
+      font-weight: 500;
+      color: var(--ink);
+    }
+
+    /* ========================================
+       DO / DON'T
+       ======================================== */
+    .do-dont {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-4);
+    }
+
+    @media (max-width: 768px) {
+      .do-dont { grid-template-columns: 1fr; }
+    }
+
+    .do-card, .dont-card {
+      padding: var(--space-5);
+      border-radius: var(--radius-xl);
+      border: 1px solid;
+    }
+
+    .do-card {
+      background: rgba(40, 167, 69, 0.04);
+      border-color: rgba(40, 167, 69, 0.2);
+    }
+
+    .dont-card {
+      background: rgba(199, 75, 75, 0.04);
+      border-color: rgba(199, 75, 75, 0.2);
+    }
+
+    .do-card h4, .dont-card h4 {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: var(--space-3);
+    }
+
+    .do-card h4 { color: var(--success); }
+    .dont-card h4 { color: var(--error); }
+
+    .do-card p, .dont-card p {
+      font-size: 14px;
+      color: var(--ink-muted);
+      line-height: 1.6;
+    }
+
+    /* ========================================
+       SPACING VISUALIZATION
+       ======================================== */
+    .spacing-row {
+      display: flex;
+      align-items: center;
+      gap: var(--space-4);
+      margin-bottom: var(--space-3);
+    }
+
+    .spacing-bar {
+      height: 24px;
+      background: var(--playbook-navy);
+      border-radius: var(--radius-sm);
+      opacity: 0.15;
+    }
+
+    .spacing-label {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--ink-muted);
+      min-width: 60px;
+      text-align: right;
+    }
+
+    .spacing-name {
+      font-size: 13px;
+      color: var(--ink-faint);
+      min-width: 160px;
+    }
+
+    /* ========================================
+       ARTICLE LAYOUT PREVIEW
+       ======================================== */
+    .article-preview {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: var(--space-6);
+      background: var(--white);
+      border: 1px solid var(--navy-pale);
+      border-radius: var(--radius-xl);
+    }
+
+    .article-preview h2 {
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      color: var(--ink);
+      margin-bottom: var(--space-4);
+    }
+
+    .article-preview p {
+      font-size: 17px;
+      line-height: 1.75;
+      color: var(--ink-muted);
+      margin-bottom: var(--space-5);
+    }
+
+    /* ========================================
+       FORM ELEMENTS
+       ======================================== */
+    .input-demo {
+      font-family: var(--font-display);
+      font-size: 15px;
+      padding: 12px 16px;
+      border: 1px solid var(--navy-pale);
+      border-radius: var(--radius-md);
+      background: var(--warm-white);
+      color: var(--ink);
+      width: 100%;
+      max-width: 360px;
+      transition: all var(--duration-normal) ease;
+      outline: none;
+    }
+
+    .input-demo:focus {
+      border-color: var(--playbook-navy);
+    }
+
+    .input-demo::placeholder {
+      color: var(--ink-faint);
+    }
+
+    /* ========================================
+       CTA BLOCK
+       ======================================== */
+    .cta-block {
+      background: var(--navy-ghost);
+      padding: var(--space-5);
+      border-radius: var(--radius-xl);
+      text-align: center;
+    }
+
+    .cta-block h3 {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: var(--space-2);
+    }
+
+    .cta-block p {
+      font-size: 15px;
+      color: var(--ink-muted);
+      margin-bottom: var(--space-5);
+    }
+
+    /* ========================================
+       NAV PREVIEW
+       ======================================== */
+    .nav-preview {
+      background: rgba(250, 249, 247, 0.95);
+      backdrop-filter: blur(16px);
+      border: 1px solid var(--navy-pale);
+      border-radius: var(--radius-xl);
+      padding: 0 var(--space-5);
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-preview-brand {
+      font-weight: 700;
+      font-size: 15px;
+      color: var(--playbook-navy);
+    }
+
+    .nav-preview-links {
+      display: flex;
+      gap: var(--space-4);
+      font-size: 14px;
+      color: var(--ink-muted);
+    }
+
+    .nav-preview-links span {
+      cursor: default;
+    }
+
+    .nav-preview-links span:hover {
+      color: var(--playbook-navy);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ====== NAVIGATION ====== -->
+  <nav>
+    <div class="nav-inner">
+      <a href="#" class="nav-brand" style="display:flex; align-items:center; gap:8px;">
+        <svg width="137" height="22" viewBox="0 0 137 22" fill="none" xmlns="http://www.w3.org/2000/svg" style="height:16px; width:auto;"><g clip-path="url(#clip0_1009_2057)"><path d="M135.527 18.6279C136.34 18.6279 137.002 19.2954 137.002 20.1185C137.002 20.9416 136.342 21.609 135.527 21.609C134.712 21.609 134.054 20.9416 134.054 20.1185C134.054 19.2954 134.714 18.6279 135.527 18.6279ZM135.527 18.9257C134.875 18.9257 134.348 19.4588 134.348 20.1185C134.348 20.7781 134.875 21.3113 135.527 21.3113C136.179 21.3113 136.706 20.7781 136.706 20.1185C136.706 19.4588 136.179 18.9257 135.527 18.9257ZM135.6 19.3732C135.885 19.3732 136.116 19.6067 136.116 19.8947C136.116 20.0835 136.016 20.2489 135.867 20.3403L136.242 20.8637H135.879L135.558 20.4162H135.231V20.8637H134.937V19.3732H135.6ZM135.6 19.6709H135.231V20.1185H135.6C135.716 20.1185 135.81 20.029 135.819 19.9161V19.8947C135.819 19.7702 135.721 19.6709 135.6 19.6709Z" fill="currentColor"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M22.8589 5.37266V21.6129H26.8699V9.43369H31.1675V5.3746H22.8569L22.8589 5.37266Z" fill="currentColor"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M40.0551 9.13777C37.9265 9.13777 36.044 10.9961 36.044 13.4868C36.044 15.9775 37.9265 17.8358 40.0551 17.8358C42.1837 17.8358 44.0662 15.9775 44.0662 13.4868C44.0662 10.9961 42.1837 9.13777 40.0551 9.13777ZM32.033 13.4887C32.033 8.93346 35.5383 5.07869 40.0571 5.07869C44.5758 5.07869 48.0812 8.93346 48.0812 13.4887C48.0812 18.044 44.5758 21.8988 40.0571 21.8988C35.5383 21.8988 32.033 18.044 32.033 13.4887Z" fill="currentColor"></path><path d="M64.3351 21.6128H68.7808L74.3917 5.37453H70.1402L66.6714 16.6041L63.9832 7.11413C63.1314 4.42883 59.376 4.42883 58.5261 7.11413L55.861 16.5321L52.5153 5.37453H48.2734L53.6959 21.6128H58.155L61.2547 10.1964L64.3351 21.6128Z" fill="currentColor"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M76.1606 1.89347H80.1717V5.37269H84.4693V9.43177H80.1717V17.5519H84.4693V21.611H82.1772C78.8545 21.611 76.1587 18.8848 76.1587 15.5204V1.89347H76.1606Z" fill="currentColor"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M86.7615 0.00783539H90.7726V5.3726H94.7837C98.1064 5.3726 100.802 8.09876 100.802 11.4632V21.6128H96.7911V9.43363H90.7726V21.6128H86.7615V0.00783539Z" fill="currentColor"></path><path d="M4.03609 11.0175C4.03609 7.11022 6.9896 4.11941 10.4258 4.11941C12.4948 4.11941 14.1773 5.01062 15.3079 6.49337H19.9324C18.3633 2.75536 14.9868 0.0350342 10.4238 0.0350342C4.57449 0.0350342 0 5.04759 0 11.0175C0 16.9874 4.56295 22 10.4161 22C13.5446 22 16.1866 20.8792 18.0441 18.9275C19.8882 16.9894 20.8323 14.3683 20.8323 11.5838V9.54255H10.4238V13.6269H16.5212C16.2443 14.5979 15.7675 15.4346 15.1387 16.0962C14.1138 17.1723 12.5582 17.9176 10.4181 17.9176C6.98575 17.9176 4.03801 14.9287 4.03801 11.0195L4.03609 11.0175Z" fill="currentColor"></path><path d="M132.502 9.19265e-05H126.872C123.959 9.19265e-05 121.261 1.55095 119.769 4.08447L117.994 7.09862L110.903 0.0020378H100.796L112.018 11.2297C112.737 11.9575 114.024 12.909 114.658 13.2631C114.693 13.2826 114.679 13.3351 114.639 13.3351H105.092V21.6109H106.427C109.34 21.6109 112.037 20.0601 113.53 17.5265L115.302 14.5143L122.396 21.6109H132.502L120.792 9.89484C120.123 9.21768 119.419 8.65921 118.717 8.34787C118.679 8.33036 118.691 8.27393 118.733 8.27393H132.504V-0.00185394L132.502 9.19265e-05Z" fill="currentColor"></path></g><defs><clipPath id="clip0_1009_2057"><rect width="137" height="22" fill="white"></rect></clipPath></defs></svg>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#colors">Colors</a></li>
+        <li><a href="#typography">Typography</a></li>
+        <li><a href="#imagery">Imagery</a></li>
+        <li><a href="#motion">Motion</a></li>
+        <li><a href="#components">Components</a></li>
+        <li><a href="#spacing">Spacing</a></li>
+        <li><a href="#principles">Principles</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ====== HERO ====== -->
+  <div class="hero">
+    <div class="container">
+      <span class="mono-label">Brand Guidelines v1.0</span>
+      <h1>AI Playbook Network</h1>
+      <p>The design system for GrowthX's network of industry-specific AI playbook websites. One system, many industries, consistent authority.</p>
+    </div>
+  </div>
+
+  <!-- ====== 1. COLORS ====== -->
+  <section id="colors">
+    <div class="container">
+      <p class="section-label">01</p>
+      <h2 class="section-title">Colors</h2>
+      <p class="section-desc">Authoritative but warm. The palette says "I'm a professional resource" not "I'm a startup." Navy anchors authority, warm white keeps it approachable, green links back to GrowthX.</p>
+
+      <h3 style="font-size:18px; font-weight:700; margin-bottom:var(--space-4); color:var(--ink);">Primary Palette</h3>
+      <div class="grid grid-colors" style="margin-bottom:var(--space-7);">
+        <div class="swatch">
+          <div class="swatch-color" style="background:var(--playbook-navy);"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">Playbook Navy</div>
+            <div class="swatch-value">#1B2B4B</div>
+            <div class="swatch-usage">Headers, hero backgrounds, primary brand</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:var(--playbook-navy-light);"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">Navy Light</div>
+            <div class="swatch-value">#2A3F6B</div>
+            <div class="swatch-usage">Hover states, secondary elements</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:var(--warm-white); border-bottom:1px solid var(--navy-pale);"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">Warm White</div>
+            <div class="swatch-value">#FAF9F7</div>
+            <div class="swatch-usage">Page backgrounds, card fills</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:var(--ink);"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">Ink</div>
+            <div class="swatch-value">#1A1A2E</div>
+            <div class="swatch-usage">Body text, maximum contrast</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:var(--growthx-green);"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">GrowthX Green</div>
+            <div class="swatch-value">#28A745</div>
+            <div class="swatch-usage">CTAs, success, "by GrowthX" branding</div>
+          </div>
+        </div>
+      </div>
+
+      <h3 style="font-size:18px; font-weight:700; margin-bottom:var(--space-4); color:var(--ink);">Extended Palette</h3>
+      <div class="grid grid-colors" style="margin-bottom:var(--space-7);">
+        <div class="swatch">
+          <div class="swatch-color" style="background:var(--navy-ghost); border-bottom:1px solid var(--navy-pale);"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">Navy Ghost</div>
+            <div class="swatch-value">#F0F2F7</div>
+            <div class="swatch-usage">Alternating sections, surfaces</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:var(--navy-pale); border-bottom:1px solid #ccc;"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">Navy Pale</div>
+            <div class="swatch-value">#E1E5EF</div>
+            <div class="swatch-usage">Badge backgrounds, borders</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:var(--ink-muted);"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">Ink Muted</div>
+            <div class="swatch-value">#5A5A6E</div>
+            <div class="swatch-usage">Secondary text, descriptions</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:var(--ink-faint);"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">Ink Faint</div>
+            <div class="swatch-value">#9A9AAE</div>
+            <div class="swatch-usage">Captions, placeholders, disabled</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:var(--warning);"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">Warning</div>
+            <div class="swatch-value">#D4953A</div>
+            <div class="swatch-usage">Callout badges, attention</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:var(--error);"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">Error</div>
+            <div class="swatch-value">#C74B4B</div>
+            <div class="swatch-usage">Error states</div>
+          </div>
+        </div>
+      </div>
+
+      <h3 style="font-size:18px; font-weight:700; margin-bottom:var(--space-4); color:var(--ink);">Industry Accent Colors</h3>
+      <p style="font-size:14px; color:var(--ink-muted); margin-bottom:var(--space-5);">One accent per industry. Used for cluster badges, card left borders, progress indicators. Never as primary backgrounds.</p>
+      <div class="grid" style="grid-template-columns:repeat(6, 1fr); gap:var(--space-3); margin-bottom:var(--space-7);">
+        <div class="swatch">
+          <div class="swatch-color" style="background:var(--accent-construction); height:60px;"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">Construction</div>
+            <div class="swatch-value">#D97706</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:var(--accent-accounting); height:60px;"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">Accounting</div>
+            <div class="swatch-value">#2563EB</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:var(--accent-wealth); height:60px;"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">Wealth Mgmt</div>
+            <div class="swatch-value">#065F46</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:var(--accent-healthcare); height:60px;"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">Healthcare</div>
+            <div class="swatch-value">#0891B2</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:var(--accent-educators); height:60px;"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">Educators</div>
+            <div class="swatch-value">#7C3AED</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:var(--accent-realestate); height:60px;"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">Real Estate</div>
+            <div class="swatch-value">#B91C1C</div>
+          </div>
+        </div>
+      </div>
+
+      <h3 style="font-size:18px; font-weight:700; margin-bottom:var(--space-4); color:var(--ink);">Palette Combinations</h3>
+      <div class="grid grid-2" style="gap:var(--space-4);">
+        <div style="background:var(--playbook-navy); color:white; padding:var(--space-5); border-radius:var(--radius-xl);">
+          <div style="font-family:var(--font-mono); font-size:11px; text-transform:uppercase; letter-spacing:1.5px; opacity:0.5; margin-bottom:var(--space-3);">Hero sections</div>
+          <div style="font-size:22px; font-weight:700;">White text on Playbook Navy</div>
+          <div style="font-size:14px; opacity:0.7; margin-top:var(--space-2);">WCAG AAA compliant</div>
+        </div>
+        <div style="background:var(--warm-white); padding:var(--space-5); border-radius:var(--radius-xl); border:1px solid var(--navy-pale);">
+          <div style="font-family:var(--font-mono); font-size:11px; text-transform:uppercase; letter-spacing:1.5px; color:var(--ink-faint); margin-bottom:var(--space-3);">Content sections</div>
+          <div style="font-size:22px; font-weight:700; color:var(--ink);">Ink on Warm White</div>
+          <div style="font-size:14px; color:var(--ink-muted); margin-top:var(--space-2);">WCAG AAA compliant</div>
+        </div>
+        <div style="background:var(--navy-ghost); padding:var(--space-5); border-radius:var(--radius-xl);">
+          <div style="background:var(--white); padding:var(--space-4); border-radius:var(--radius-lg); border:1px solid var(--navy-pale);">
+            <div style="font-family:var(--font-mono); font-size:11px; text-transform:uppercase; letter-spacing:1.5px; color:var(--ink-faint); margin-bottom:var(--space-2);">Card surfaces</div>
+            <div style="font-size:16px; font-weight:600; color:var(--ink);">White cards on Navy Ghost</div>
+          </div>
+        </div>
+        <div style="background:var(--white); padding:var(--space-5); border-radius:var(--radius-xl); border:1px solid var(--navy-pale); display:flex; align-items:center; justify-content:center;">
+          <a href="#" class="btn btn-primary" onclick="event.preventDefault()">CTA on White</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== 2. TYPOGRAPHY ====== -->
+  <section id="typography">
+    <div class="container">
+      <p class="section-label">02</p>
+      <h2 class="section-title">Typography</h2>
+      <p class="section-desc">Inter for everything readable. JetBrains Mono for code and metadata. Two fonts, clear hierarchy, no surprises.</p>
+
+      <div class="grid grid-2" style="margin-bottom:var(--space-7);">
+        <div class="demo-box">
+          <div class="demo-label">Display font</div>
+          <div style="font-size:32px; font-weight:800; letter-spacing:-1px; color:var(--ink); margin-bottom:var(--space-3);">Inter</div>
+          <div style="font-size:15px; color:var(--ink-muted); margin-bottom:var(--space-4);">Weights: 400, 500, 600, 700, 800</div>
+          <div style="font-size:15px; color:var(--ink-muted);">
+            <span style="font-weight:400;">Regular 400</span> &middot;
+            <span style="font-weight:500;">Medium 500</span> &middot;
+            <span style="font-weight:600;">Semibold 600</span> &middot;
+            <span style="font-weight:700;">Bold 700</span> &middot;
+            <span style="font-weight:800;">Black 800</span>
+          </div>
+        </div>
+        <div class="demo-box">
+          <div class="demo-label">Monospace font</div>
+          <div style="font-family:var(--font-mono); font-size:28px; font-weight:500; color:var(--ink); margin-bottom:var(--space-3);">JetBrains Mono</div>
+          <div style="font-family:var(--font-mono); font-size:14px; color:var(--ink-muted); margin-bottom:var(--space-4);">Weights: 400, 500</div>
+          <div style="font-family:var(--font-mono); font-size:14px; color:var(--ink-muted);">
+            <span style="font-weight:400;">Regular 400</span> &middot;
+            <span style="font-weight:500;">Medium 500</span>
+          </div>
+        </div>
+      </div>
+
+      <h3 style="font-size:18px; font-weight:700; margin-bottom:var(--space-5); color:var(--ink);">Type Scale</h3>
+
+      <div class="type-specimen">
+        <div class="spec-label">Hero H1</div>
+        <div style="font-size:clamp(36px, 5vw, 64px); font-weight:800; letter-spacing:-1.5px; line-height:1.1; color:var(--ink);">Your competitors are bidding with AI</div>
+        <div class="spec-meta">Inter 800 &middot; clamp(36px, 5vw, 64px) &middot; -1.5px tracking &middot; 1.1 line-height</div>
+      </div>
+
+      <div class="type-specimen">
+        <div class="spec-label">Section H2</div>
+        <div style="font-size:clamp(28px, 3.5vw, 42px); font-weight:700; letter-spacing:-1px; line-height:1.15; color:var(--playbook-navy);">AI foundations for construction</div>
+        <div class="spec-meta">Inter 700 &middot; clamp(28px, 3.5vw, 42px) &middot; -1px tracking &middot; 1.15 line-height</div>
+      </div>
+
+      <div class="type-specimen">
+        <div class="spec-label">Card H3</div>
+        <div style="font-size:22px; font-weight:600; color:var(--ink);">How Turner Construction uses Claude for RFP responses</div>
+        <div class="spec-meta">Inter 600 &middot; 22px &middot; default tracking</div>
+      </div>
+
+      <div class="type-specimen">
+        <div class="spec-label">Body</div>
+        <div style="font-size:17px; font-weight:400; line-height:1.75; color:var(--ink-muted);">Construction firms spend an average of 40 hours per RFP response. Most of that time goes into reformatting past proposals, not thinking about the actual project. Claude can cut that to 8 hours by handling the boilerplate while your team focuses on what makes your bid different.</div>
+        <div class="spec-meta">Inter 400 &middot; 17px &middot; 1.75 line-height</div>
+      </div>
+
+      <div class="type-specimen">
+        <div class="spec-label">Caption</div>
+        <div style="font-size:13px; font-weight:500; color:var(--ink-muted);">5 min read &middot; March 2026</div>
+        <div class="spec-meta">Inter 500 &middot; 13px &middot; Ink Muted</div>
+      </div>
+
+      <div class="type-specimen">
+        <div class="spec-label">Badge / Label</div>
+        <div style="font-family:var(--font-mono); font-size:11px; font-weight:500; text-transform:uppercase; letter-spacing:1.5px; color:var(--ink-faint);">FOUNDATIONS &middot; PRACTICE &middot; CODE</div>
+        <div class="spec-meta">JetBrains Mono 500 &middot; 11px &middot; uppercase &middot; 1.5px letter-spacing</div>
+      </div>
+
+      <div class="type-specimen">
+        <div class="spec-label">Code block</div>
+        <div class="code-block" style="margin:0;">
+<span class="comment">// Ask Claude to draft an RFP response</span>
+<span class="prop">const</span> response = <span class="prop">await</span> claude.messages.create({
+  model: <span class="val">"claude-sonnet-4-6"</span>,
+  messages: [{ role: <span class="val">"user"</span>, content: prompt }]
+});</div>
+        <div class="spec-meta">JetBrains Mono 400 &middot; 14px &middot; 1.6 line-height &middot; Ink background</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== 3. IMAGERY ====== -->
+  <section id="imagery">
+    <div class="container">
+      <p class="section-label">03</p>
+      <h2 class="section-title">Imagery</h2>
+      <p class="section-desc">Abstract geometric patterns, not illustrations. Each industry gets a subtle visual identity through shapes and accent colors. No stock photos, no AI faces, no clip art.</p>
+
+      <div class="grid grid-2" style="margin-bottom:var(--space-7);">
+        <div class="demo-box-dark demo-box" style="position:relative; overflow:hidden; min-height:200px;">
+          <div class="demo-label" style="color:rgba(255,255,255,0.5);">Construction pattern</div>
+          <svg style="position:absolute; top:0; left:0; width:100%; height:100%; opacity:0.08;" viewBox="0 0 400 200">
+            <line x1="0" y1="40" x2="400" y2="40" stroke="#D97706" stroke-width="1"/>
+            <line x1="0" y1="80" x2="400" y2="80" stroke="#D97706" stroke-width="1"/>
+            <line x1="0" y1="120" x2="400" y2="120" stroke="#D97706" stroke-width="1"/>
+            <line x1="0" y1="160" x2="400" y2="160" stroke="#D97706" stroke-width="1"/>
+            <line x1="80" y1="0" x2="80" y2="200" stroke="#D97706" stroke-width="1"/>
+            <line x1="160" y1="0" x2="160" y2="200" stroke="#D97706" stroke-width="1"/>
+            <line x1="240" y1="0" x2="240" y2="200" stroke="#D97706" stroke-width="1"/>
+            <line x1="320" y1="0" x2="320" y2="200" stroke="#D97706" stroke-width="1"/>
+            <rect x="80" y="40" width="80" height="80" fill="none" stroke="#D97706" stroke-width="2"/>
+            <line x1="80" y1="40" x2="160" y2="120" stroke="#D97706" stroke-width="1"/>
+          </svg>
+          <div style="position:relative; z-index:1; margin-top:auto; padding-top:120px;">
+            <div style="color:white; font-size:14px; font-weight:600;">Blueprint grid</div>
+            <div style="color:rgba(255,255,255,0.5); font-size:13px;">Accent: #D97706 at 8% opacity</div>
+          </div>
+        </div>
+        <div class="demo-box-dark demo-box" style="position:relative; overflow:hidden; min-height:200px;">
+          <div class="demo-label" style="color:rgba(255,255,255,0.5);">Healthcare pattern</div>
+          <svg style="position:absolute; top:0; left:0; width:100%; height:100%; opacity:0.08;" viewBox="0 0 400 200">
+            <circle cx="100" cy="60" r="30" fill="none" stroke="#0891B2" stroke-width="1.5"/>
+            <circle cx="200" cy="100" r="40" fill="none" stroke="#0891B2" stroke-width="1.5"/>
+            <circle cx="300" cy="70" r="25" fill="none" stroke="#0891B2" stroke-width="1.5"/>
+            <circle cx="150" cy="150" r="20" fill="none" stroke="#0891B2" stroke-width="1.5"/>
+            <line x1="130" y1="60" x2="160" y2="100" stroke="#0891B2" stroke-width="1"/>
+            <line x1="240" y1="100" x2="275" y2="70" stroke="#0891B2" stroke-width="1"/>
+            <line x1="200" y1="140" x2="170" y2="150" stroke="#0891B2" stroke-width="1"/>
+          </svg>
+          <div style="position:relative; z-index:1; margin-top:auto; padding-top:120px;">
+            <div style="color:white; font-size:14px; font-weight:600;">Network nodes</div>
+            <div style="color:rgba(255,255,255,0.5); font-size:13px;">Accent: #0891B2 at 8% opacity</div>
+          </div>
+        </div>
+      </div>
+
+      <h3 style="font-size:18px; font-weight:700; margin-bottom:var(--space-4); color:var(--ink);">OG image template</h3>
+      <div class="demo-box-dark demo-box" style="max-width:600px; aspect-ratio:1200/630; display:flex; flex-direction:column; justify-content:space-between;">
+        <div></div>
+        <div style="padding:var(--space-5);">
+          <div style="color:white; font-size:24px; font-weight:700; line-height:1.2; margin-bottom:var(--space-4);">How to use Claude for construction RFP responses</div>
+          <div style="color:rgba(255,255,255,0.5); font-size:13px;">Construction AI Playbook by GrowthX</div>
+        </div>
+      </div>
+
+      <div style="margin-top:var(--space-7);">
+        <h3 style="font-size:18px; font-weight:700; margin-bottom:var(--space-4); color:var(--ink);">Icon style</h3>
+        <p style="font-size:14px; color:var(--ink-muted); margin-bottom:var(--space-4);">Lucide icons, 24px, 1.5px stroke weight. Used for pain point cards and UI elements.</p>
+        <div class="do-dont">
+          <div class="do-card">
+            <h4>Do</h4>
+            <p>Use Lucide icons at 24px with 1.5px stroke. Keep icons monochrome (Ink or Ink Muted). Use icons to support text, not replace it.</p>
+          </div>
+          <div class="dont-card">
+            <h4>Don't</h4>
+            <p>Use filled icons, multicolor icons, emoji as icons, or icons from mixed icon sets. No stock illustration packs.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== 4. MOTION ====== -->
+  <section id="motion">
+    <div class="container">
+      <p class="section-label">04</p>
+      <h2 class="section-title">Motion</h2>
+      <p class="section-desc">Minimal and purposeful. These are resource sites for busy professionals. Every animation earns its place.</p>
+
+      <table class="spec-table" style="margin-bottom:var(--space-7);">
+        <thead>
+          <tr>
+            <th>Animation</th>
+            <th>Duration</th>
+            <th>Easing</th>
+            <th>Trigger</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Fade in</td>
+            <td><code style="font-family:var(--font-mono); font-size:13px;">400ms</code></td>
+            <td><code style="font-family:var(--font-mono); font-size:13px;">ease-out</code></td>
+            <td>Scroll into view (once)</td>
+          </tr>
+          <tr>
+            <td>Card lift</td>
+            <td><code style="font-family:var(--font-mono); font-size:13px;">200ms</code></td>
+            <td><code style="font-family:var(--font-mono); font-size:13px;">ease</code></td>
+            <td>Hover</td>
+          </tr>
+          <tr>
+            <td>Button press</td>
+            <td><code style="font-family:var(--font-mono); font-size:13px;">150ms</code></td>
+            <td><code style="font-family:var(--font-mono); font-size:13px;">ease</code></td>
+            <td>Active/click</td>
+          </tr>
+          <tr>
+            <td>Page transition</td>
+            <td><code style="font-family:var(--font-mono); font-size:13px;">300ms</code></td>
+            <td><code style="font-family:var(--font-mono); font-size:13px;">ease-in-out</code></td>
+            <td>Navigation</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3 style="font-size:18px; font-weight:700; margin-bottom:var(--space-4); color:var(--ink);">Live demos</h3>
+      <div class="motion-demo">
+        <div class="motion-box motion-fade" style="animation-delay:0ms;">Fade in<br>400ms</div>
+        <div class="motion-box motion-fade" style="animation-delay:75ms;">Stagger<br>+75ms</div>
+        <div class="motion-box motion-fade" style="animation-delay:150ms;">Stagger<br>+150ms</div>
+        <div class="motion-box motion-lift">Hover me<br>(card lift)</div>
+        <div class="motion-box motion-press">Click me<br>(press)</div>
+      </div>
+
+      <div style="margin-top:var(--space-7);">
+        <div class="do-dont">
+          <div class="do-card">
+            <h4>Do</h4>
+            <p>Respect <code>prefers-reduced-motion</code>. Keep transitions under 400ms for interactions. Stagger multi-element reveals by 75ms. Use animation to guide attention.</p>
+          </div>
+          <div class="dont-card">
+            <h4>Don't</h4>
+            <p>Use continuous animations (pulse, float, shimmer). No parallax scrolling. No scroll-jacking. No animations longer than 400ms for user-initiated actions.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== 5. COMPONENTS ====== -->
+  <section id="components">
+    <div class="container">
+      <p class="section-label">05</p>
+      <h2 class="section-title">Components</h2>
+      <p class="section-desc">Every component serves a purpose. Buttons drive action, cards organize content, badges categorize clusters. No decoration-only components.</p>
+
+      <!-- Buttons -->
+      <h3 style="font-size:18px; font-weight:700; margin-bottom:var(--space-4); color:var(--ink);">Buttons</h3>
+      <div class="demo-box" style="margin-bottom:var(--space-7);">
+        <div class="demo-label">Button variants</div>
+        <div style="display:flex; gap:var(--space-4); flex-wrap:wrap; align-items:center;">
+          <a href="#" class="btn btn-primary" onclick="event.preventDefault()">Get started</a>
+          <a href="#" class="btn btn-secondary" onclick="event.preventDefault()">Learn more</a>
+          <a href="#" class="btn btn-ghost" onclick="event.preventDefault()">View all articles</a>
+        </div>
+        <div style="margin-top:var(--space-5); font-family:var(--font-mono); font-size:12px; color:var(--ink-faint);">
+          Padding: 10px 22px &middot; Radius: 999px (pill) &middot; Font: Inter 600 14px &middot; Transition: 200ms
+        </div>
+      </div>
+
+      <!-- Badges -->
+      <h3 style="font-size:18px; font-weight:700; margin-bottom:var(--space-4); color:var(--ink);">Badges</h3>
+      <div class="demo-box" style="margin-bottom:var(--space-7);">
+        <div class="demo-label">Cluster badges</div>
+        <div style="display:flex; gap:var(--space-3); flex-wrap:wrap; align-items:center;">
+          <span class="badge badge-foundations">Foundations</span>
+          <span class="badge badge-practice">Practice</span>
+          <span class="badge badge-code">Code</span>
+        </div>
+        <div style="margin-top:var(--space-5); font-family:var(--font-mono); font-size:12px; color:var(--ink-faint);">
+          Font: JetBrains Mono 500 &middot; 10px &middot; uppercase &middot; 1.5px letter-spacing &middot; Padding: 4px 12px
+        </div>
+      </div>
+
+      <!-- Article Card -->
+      <h3 style="font-size:18px; font-weight:700; margin-bottom:var(--space-4); color:var(--ink);">Article card</h3>
+      <div class="grid grid-3" style="margin-bottom:var(--space-7);">
+        <div class="card-article">
+          <span class="badge badge-foundations" style="margin-bottom:var(--space-3); display:inline-block;">Foundations</span>
+          <h3 style="font-size:18px; font-weight:600; color:var(--ink); margin-bottom:var(--space-2); line-height:1.3;">What AI means for your construction firm in 2026</h3>
+          <p style="font-size:14px; color:var(--ink-muted); line-height:1.6; margin-bottom:var(--space-3);">Your competitors are already using AI to win bids faster. Here's what you need to know before you fall behind.</p>
+          <span style="font-size:13px; font-weight:500; color:var(--ink-faint);">5 min read</span>
+        </div>
+        <div class="card-article">
+          <span class="badge badge-practice" style="margin-bottom:var(--space-3); display:inline-block;">Practice</span>
+          <h3 style="font-size:18px; font-weight:600; color:var(--ink); margin-bottom:var(--space-2); line-height:1.3;">Using Claude to draft project proposals in half the time</h3>
+          <p style="font-size:14px; color:var(--ink-muted); line-height:1.6; margin-bottom:var(--space-3);">A step-by-step guide to building your first Claude-assisted proposal workflow.</p>
+          <span style="font-size:13px; font-weight:500; color:var(--ink-faint);">8 min read</span>
+        </div>
+        <div class="card-article">
+          <span class="badge badge-code" style="margin-bottom:var(--space-3); display:inline-block;">Code</span>
+          <h3 style="font-size:18px; font-weight:600; color:var(--ink); margin-bottom:var(--space-2); line-height:1.3;">Automating safety report generation with Claude Code</h3>
+          <p style="font-size:14px; color:var(--ink-muted); line-height:1.6; margin-bottom:var(--space-3);">Build an agentic workflow that turns job site data into compliance-ready safety reports.</p>
+          <span style="font-size:13px; font-weight:500; color:var(--ink-faint);">12 min read</span>
+        </div>
+      </div>
+
+      <!-- Pain Point Card -->
+      <h3 style="font-size:18px; font-weight:700; margin-bottom:var(--space-4); color:var(--ink);">Pain point card (home page)</h3>
+      <div class="grid grid-2" style="margin-bottom:var(--space-7);">
+        <div class="card-pain">
+          <div class="card-pain-icon">&#9888;</div>
+          <h4>RFP responses take 40+ hours each</h4>
+          <p>Your team spends more time reformatting old proposals than thinking about what makes your bid competitive.</p>
+        </div>
+        <div class="card-pain">
+          <div class="card-pain-icon">&#9201;</div>
+          <h4>Tax season overwhelms your team every year</h4>
+          <p>You hire temps, burn out your best people, and still miss deadlines. AI can handle the prep work.</p>
+        </div>
+      </div>
+
+      <!-- Navigation -->
+      <h3 style="font-size:18px; font-weight:700; margin-bottom:var(--space-4); color:var(--ink);">Navigation bar</h3>
+      <div style="margin-bottom:var(--space-7);">
+        <div class="nav-preview">
+          <div class="nav-preview-brand" style="display:flex; align-items:center; gap:8px;">Construction AI Playbook <span style="color:var(--ink-faint); font-weight:400; font-size:13px;">by</span> <svg width="137" height="22" viewBox="0 0 137 22" fill="none" xmlns="http://www.w3.org/2000/svg" style="height:14px; width:auto; color:var(--playbook-navy);"><g clip-path="url(#clip0_nav)"><path d="M135.527 18.6279C136.34 18.6279 137.002 19.2954 137.002 20.1185C137.002 20.9416 136.342 21.609 135.527 21.609C134.712 21.609 134.054 20.9416 134.054 20.1185C134.054 19.2954 134.714 18.6279 135.527 18.6279ZM135.527 18.9257C134.875 18.9257 134.348 19.4588 134.348 20.1185C134.348 20.7781 134.875 21.3113 135.527 21.3113C136.179 21.3113 136.706 20.7781 136.706 20.1185C136.706 19.4588 136.179 18.9257 135.527 18.9257ZM135.6 19.3732C135.885 19.3732 136.116 19.6067 136.116 19.8947C136.116 20.0835 136.016 20.2489 135.867 20.3403L136.242 20.8637H135.879L135.558 20.4162H135.231V20.8637H134.937V19.3732H135.6ZM135.6 19.6709H135.231V20.1185H135.6C135.716 20.1185 135.81 20.029 135.819 19.9161V19.8947C135.819 19.7702 135.721 19.6709 135.6 19.6709Z" fill="currentColor"/><path fill-rule="evenodd" clip-rule="evenodd" d="M22.8589 5.37266V21.6129H26.8699V9.43369H31.1675V5.3746H22.8569L22.8589 5.37266Z" fill="currentColor"/><path fill-rule="evenodd" clip-rule="evenodd" d="M40.0551 9.13777C37.9265 9.13777 36.044 10.9961 36.044 13.4868C36.044 15.9775 37.9265 17.8358 40.0551 17.8358C42.1837 17.8358 44.0662 15.9775 44.0662 13.4868C44.0662 10.9961 42.1837 9.13777 40.0551 9.13777ZM32.033 13.4887C32.033 8.93346 35.5383 5.07869 40.0571 5.07869C44.5758 5.07869 48.0812 8.93346 48.0812 13.4887C48.0812 18.044 44.5758 21.8988 40.0571 21.8988C35.5383 21.8988 32.033 18.044 32.033 13.4887Z" fill="currentColor"/><path d="M64.3351 21.6128H68.7808L74.3917 5.37453H70.1402L66.6714 16.6041L63.9832 7.11413C63.1314 4.42883 59.376 4.42883 58.5261 7.11413L55.861 16.5321L52.5153 5.37453H48.2734L53.6959 21.6128H58.155L61.2547 10.1964L64.3351 21.6128Z" fill="currentColor"/><path fill-rule="evenodd" clip-rule="evenodd" d="M76.1606 1.89347H80.1717V5.37269H84.4693V9.43177H80.1717V17.5519H84.4693V21.611H82.1772C78.8545 21.611 76.1587 18.8848 76.1587 15.5204V1.89347H76.1606Z" fill="currentColor"/><path fill-rule="evenodd" clip-rule="evenodd" d="M86.7615 0.00783539H90.7726V5.3726H94.7837C98.1064 5.3726 100.802 8.09876 100.802 11.4632V21.6128H96.7911V9.43363H90.7726V21.6128H86.7615V0.00783539Z" fill="currentColor"/><path d="M4.03609 11.0175C4.03609 7.11022 6.9896 4.11941 10.4258 4.11941C12.4948 4.11941 14.1773 5.01062 15.3079 6.49337H19.9324C18.3633 2.75536 14.9868 0.0350342 10.4238 0.0350342C4.57449 0.0350342 0 5.04759 0 11.0175C0 16.9874 4.56295 22 10.4161 22C13.5446 22 16.1866 20.8792 18.0441 18.9275C19.8882 16.9894 20.8323 14.3683 20.8323 11.5838V9.54255H10.4238V13.6269H16.5212C16.2443 14.5979 15.7675 15.4346 15.1387 16.0962C14.1138 17.1723 12.5582 17.9176 10.4181 17.9176C6.98575 17.9176 4.03801 14.9287 4.03801 11.0195L4.03609 11.0175Z" fill="currentColor"/><path d="M132.502 9.19265e-05H126.872C123.959 9.19265e-05 121.261 1.55095 119.769 4.08447L117.994 7.09862L110.903 0.0020378H100.796L112.018 11.2297C112.737 11.9575 114.024 12.909 114.658 13.2631C114.693 13.2826 114.679 13.3351 114.639 13.3351H105.092V21.6109H106.427C109.34 21.6109 112.037 20.0601 113.53 17.5265L115.302 14.5143L122.396 21.6109H132.502L120.792 9.89484C120.123 9.21768 119.419 8.65921 118.717 8.34787C118.679 8.33036 118.691 8.27393 118.733 8.27393H132.504V-0.00185394L132.502 9.19265e-05Z" fill="currentColor"/></g><defs><clipPath id="clip0_nav"><rect width="137" height="22" fill="white"/></clipPath></defs></svg></div>
+          <div class="nav-preview-links">
+            <span>Foundations</span>
+            <span>Practice</span>
+            <span>Code</span>
+            <a href="#" class="btn btn-primary" style="font-size:13px; padding:8px 18px;" onclick="event.preventDefault()">Talk to us</a>
+          </div>
+        </div>
+        <div style="margin-top:var(--space-3); font-family:var(--font-mono); font-size:12px; color:var(--ink-faint);">
+          Sticky &middot; 64px height &middot; backdrop-filter: blur(16px) saturate(1.2) &middot; 90% opacity warm white
+        </div>
+      </div>
+
+      <!-- Form Input -->
+      <h3 style="font-size:18px; font-weight:700; margin-bottom:var(--space-4); color:var(--ink);">Form input</h3>
+      <div class="demo-box" style="margin-bottom:var(--space-7);">
+        <div class="demo-label">Text input</div>
+        <input type="text" class="input-demo" placeholder="your@email.com">
+        <div style="margin-top:var(--space-4); font-family:var(--font-mono); font-size:12px; color:var(--ink-faint);">
+          Padding: 12px 16px &middot; Radius: 8px &middot; Focus: navy border + 3px box-shadow
+        </div>
+      </div>
+
+      <!-- CTA Block -->
+      <h3 style="font-size:18px; font-weight:700; margin-bottom:var(--space-4); color:var(--ink);">CTA block (end of article)</h3>
+      <div style="max-width:720px; margin-bottom:var(--space-7);">
+        <div class="cta-block">
+          <h3>Want us to build this for you?</h3>
+          <p>GrowthX builds AI-powered content engines for companies like yours. Start with an 8-week Strategy Sprint.</p>
+          <a href="#" class="btn btn-primary" onclick="event.preventDefault()">Book a Strategy Sprint</a>
+        </div>
+      </div>
+
+      <!-- Article Layout Preview -->
+      <h3 style="font-size:18px; font-weight:700; margin-bottom:var(--space-4); color:var(--ink);">Article layout (720px max-width)</h3>
+      <div class="article-preview" style="margin-bottom:var(--space-7);">
+        <div style="display:flex; align-items:center; gap:var(--space-3); margin-bottom:var(--space-5);">
+          <span class="badge badge-foundations">Foundations</span>
+          <span style="font-size:13px; font-weight:500; color:var(--ink-faint);">5 min read &middot; March 2026</span>
+        </div>
+        <h2>What AI means for your construction firm in 2026</h2>
+        <p>Construction firms spend an average of 40 hours per RFP response. Most of that time goes into reformatting past proposals, not thinking about the actual project. Claude can cut that to 8 hours by handling the boilerplate while your team focuses on what makes your bid different.</p>
+        <p>This isn't about replacing your estimators or project managers. It's about giving them better tools so they can do more of what they're actually good at.</p>
+        <div class="cta-block" style="margin-top:var(--space-6);">
+          <h3>Want us to build this for you?</h3>
+          <p>GrowthX builds AI-powered content engines for companies like yours.</p>
+          <a href="#" class="btn btn-primary" onclick="event.preventDefault()">Book a Strategy Sprint</a>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <h3 style="font-size:18px; font-weight:700; margin-bottom:var(--space-4); color:var(--ink);">Footer</h3>
+      <div style="background:var(--playbook-navy); border-radius:var(--radius-xl); padding:var(--space-7) var(--space-6); color:white;">
+        <div style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:var(--space-6);">
+          <div>
+            <div style="font-weight:700; font-size:16px; margin-bottom:var(--space-3); display:flex; align-items:center; gap:8px; flex-wrap:wrap;">Construction AI Playbook <span style="color:rgba(255,255,255,0.5); font-weight:400; font-size:13px;">by</span> <svg width="137" height="22" viewBox="0 0 137 22" fill="none" xmlns="http://www.w3.org/2000/svg" style="height:14px; width:auto; color:white;"><g clip-path="url(#clip0_footer)"><path d="M135.527 18.6279C136.34 18.6279 137.002 19.2954 137.002 20.1185C137.002 20.9416 136.342 21.609 135.527 21.609C134.712 21.609 134.054 20.9416 134.054 20.1185C134.054 19.2954 134.714 18.6279 135.527 18.6279ZM135.527 18.9257C134.875 18.9257 134.348 19.4588 134.348 20.1185C134.348 20.7781 134.875 21.3113 135.527 21.3113C136.179 21.3113 136.706 20.7781 136.706 20.1185C136.706 19.4588 136.179 18.9257 135.527 18.9257ZM135.6 19.3732C135.885 19.3732 136.116 19.6067 136.116 19.8947C136.116 20.0835 136.016 20.2489 135.867 20.3403L136.242 20.8637H135.879L135.558 20.4162H135.231V20.8637H134.937V19.3732H135.6ZM135.6 19.6709H135.231V20.1185H135.6C135.716 20.1185 135.81 20.029 135.819 19.9161V19.8947C135.819 19.7702 135.721 19.6709 135.6 19.6709Z" fill="currentColor"/><path fill-rule="evenodd" clip-rule="evenodd" d="M22.8589 5.37266V21.6129H26.8699V9.43369H31.1675V5.3746H22.8569L22.8589 5.37266Z" fill="currentColor"/><path fill-rule="evenodd" clip-rule="evenodd" d="M40.0551 9.13777C37.9265 9.13777 36.044 10.9961 36.044 13.4868C36.044 15.9775 37.9265 17.8358 40.0551 17.8358C42.1837 17.8358 44.0662 15.9775 44.0662 13.4868C44.0662 10.9961 42.1837 9.13777 40.0551 9.13777ZM32.033 13.4887C32.033 8.93346 35.5383 5.07869 40.0571 5.07869C44.5758 5.07869 48.0812 8.93346 48.0812 13.4887C48.0812 18.044 44.5758 21.8988 40.0571 21.8988C35.5383 21.8988 32.033 18.044 32.033 13.4887Z" fill="currentColor"/><path d="M64.3351 21.6128H68.7808L74.3917 5.37453H70.1402L66.6714 16.6041L63.9832 7.11413C63.1314 4.42883 59.376 4.42883 58.5261 7.11413L55.861 16.5321L52.5153 5.37453H48.2734L53.6959 21.6128H58.155L61.2547 10.1964L64.3351 21.6128Z" fill="currentColor"/><path fill-rule="evenodd" clip-rule="evenodd" d="M76.1606 1.89347H80.1717V5.37269H84.4693V9.43177H80.1717V17.5519H84.4693V21.611H82.1772C78.8545 21.611 76.1587 18.8848 76.1587 15.5204V1.89347H76.1606Z" fill="currentColor"/><path fill-rule="evenodd" clip-rule="evenodd" d="M86.7615 0.00783539H90.7726V5.3726H94.7837C98.1064 5.3726 100.802 8.09876 100.802 11.4632V21.6128H96.7911V9.43363H90.7726V21.6128H86.7615V0.00783539Z" fill="currentColor"/><path d="M4.03609 11.0175C4.03609 7.11022 6.9896 4.11941 10.4258 4.11941C12.4948 4.11941 14.1773 5.01062 15.3079 6.49337H19.9324C18.3633 2.75536 14.9868 0.0350342 10.4238 0.0350342C4.57449 0.0350342 0 5.04759 0 11.0175C0 16.9874 4.56295 22 10.4161 22C13.5446 22 16.1866 20.8792 18.0441 18.9275C19.8882 16.9894 20.8323 14.3683 20.8323 11.5838V9.54255H10.4238V13.6269H16.5212C16.2443 14.5979 15.7675 15.4346 15.1387 16.0962C14.1138 17.1723 12.5582 17.9176 10.4181 17.9176C6.98575 17.9176 4.03801 14.9287 4.03801 11.0195L4.03609 11.0175Z" fill="currentColor"/><path d="M132.502 9.19265e-05H126.872C123.959 9.19265e-05 121.261 1.55095 119.769 4.08447L117.994 7.09862L110.903 0.0020378H100.796L112.018 11.2297C112.737 11.9575 114.024 12.909 114.658 13.2631C114.693 13.2826 114.679 13.3351 114.639 13.3351H105.092V21.6109H106.427C109.34 21.6109 112.037 20.0601 113.53 17.5265L115.302 14.5143L122.396 21.6109H132.502L120.792 9.89484C120.123 9.21768 119.419 8.65921 118.717 8.34787C118.679 8.33036 118.691 8.27393 118.733 8.27393H132.504V-0.00185394L132.502 9.19265e-05Z" fill="currentColor"/></g><defs><clipPath id="clip0_footer"><rect width="137" height="22" fill="white"/></clipPath></defs></svg></div>
+            <div style="font-size:14px; color:rgba(255,255,255,0.5); max-width:300px; line-height:1.6;">Practical AI guidance for construction leaders. Built using the same content engine we build for our clients.</div>
+          </div>
+          <div>
+            <div style="font-family:var(--font-mono); font-size:11px; text-transform:uppercase; letter-spacing:1.5px; color:rgba(255,255,255,0.4); margin-bottom:var(--space-3);">Explore more playbooks</div>
+            <div style="font-size:14px; color:rgba(255,255,255,0.6); line-height:2;">
+              Accounting AI Playbook<br>
+              Wealth Management AI Playbook<br>
+              Healthcare AI Playbook<br>
+              Educators AI Playbook
+            </div>
+          </div>
+          <div>
+            <div style="font-family:var(--font-mono); font-size:11px; text-transform:uppercase; letter-spacing:1.5px; color:rgba(255,255,255,0.4); margin-bottom:var(--space-3);">GrowthX</div>
+            <div style="font-size:14px; color:rgba(255,255,255,0.6); line-height:2;">
+              growthx.ai<br>
+              Strategy Sprint<br>
+              About
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== 6. SPACING ====== -->
+  <section id="spacing">
+    <div class="container">
+      <p class="section-label">06</p>
+      <h2 class="section-title">Spacing</h2>
+      <p class="section-desc">A consistent spatial rhythm creates visual order. Nine stops from tight to dramatic.</p>
+
+      <div style="margin-bottom:var(--space-7);">
+        <div class="spacing-row">
+          <div class="spacing-label">4px</div>
+          <div class="spacing-bar" style="width:4px;"></div>
+          <div class="spacing-name">--space-1 &middot; tight</div>
+        </div>
+        <div class="spacing-row">
+          <div class="spacing-label">8px</div>
+          <div class="spacing-bar" style="width:8px;"></div>
+          <div class="spacing-name">--space-2 &middot; compact</div>
+        </div>
+        <div class="spacing-row">
+          <div class="spacing-label">12px</div>
+          <div class="spacing-bar" style="width:12px;"></div>
+          <div class="spacing-name">--space-3 &middot; default</div>
+        </div>
+        <div class="spacing-row">
+          <div class="spacing-label">16px</div>
+          <div class="spacing-bar" style="width:16px;"></div>
+          <div class="spacing-name">--space-4 &middot; comfortable</div>
+        </div>
+        <div class="spacing-row">
+          <div class="spacing-label">24px</div>
+          <div class="spacing-bar" style="width:24px;"></div>
+          <div class="spacing-name">--space-5 &middot; generous</div>
+        </div>
+        <div class="spacing-row">
+          <div class="spacing-label">32px</div>
+          <div class="spacing-bar" style="width:32px;"></div>
+          <div class="spacing-name">--space-6 &middot; section</div>
+        </div>
+        <div class="spacing-row">
+          <div class="spacing-label">48px</div>
+          <div class="spacing-bar" style="width:48px;"></div>
+          <div class="spacing-name">--space-7 &middot; section break</div>
+        </div>
+        <div class="spacing-row">
+          <div class="spacing-label">64px</div>
+          <div class="spacing-bar" style="width:64px;"></div>
+          <div class="spacing-name">--space-8 &middot; page section</div>
+        </div>
+        <div class="spacing-row">
+          <div class="spacing-label">96px</div>
+          <div class="spacing-bar" style="width:96px;"></div>
+          <div class="spacing-name">--space-9 &middot; dramatic</div>
+        </div>
+      </div>
+
+      <h3 style="font-size:18px; font-weight:700; margin-bottom:var(--space-4); color:var(--ink);">Border radius</h3>
+      <div style="display:flex; gap:var(--space-4); flex-wrap:wrap; margin-bottom:var(--space-7);">
+        <div style="width:60px; height:60px; background:var(--playbook-navy); border-radius:4px; display:flex; align-items:center; justify-content:center; color:white; font-family:var(--font-mono); font-size:11px;">4px</div>
+        <div style="width:60px; height:60px; background:var(--playbook-navy); border-radius:8px; display:flex; align-items:center; justify-content:center; color:white; font-family:var(--font-mono); font-size:11px;">8px</div>
+        <div style="width:60px; height:60px; background:var(--playbook-navy); border-radius:12px; display:flex; align-items:center; justify-content:center; color:white; font-family:var(--font-mono); font-size:11px;">12px</div>
+        <div style="width:60px; height:60px; background:var(--playbook-navy); border-radius:16px; display:flex; align-items:center; justify-content:center; color:white; font-family:var(--font-mono); font-size:11px;">16px</div>
+        <div style="width:100px; height:40px; background:var(--playbook-navy); border-radius:999px; display:flex; align-items:center; justify-content:center; color:white; font-family:var(--font-mono); font-size:11px;">pill</div>
+      </div>
+
+      <h3 style="font-size:18px; font-weight:700; margin-bottom:var(--space-4); color:var(--ink);">Elevation</h3>
+      <p style="font-size:14px; color:var(--ink-muted);">No shadows. Use borders for separation and subtle background color shifts for depth. Elevation is communicated through <code style="font-family:var(--font-mono); font-size:13px;">translateY</code> on hover and border-color changes, not shadows.</p>
+    </div>
+  </section>
+
+  <!-- ====== 7. PRINCIPLES ====== -->
+  <section id="principles">
+    <div class="container">
+      <p class="section-label">07</p>
+      <h2 class="section-title">Principles</h2>
+      <p class="section-desc">Five rules that govern every design decision. Derived from GrowthX's philosophy: "show, don't decorate", "constraints enable creativity", "consistency compounds."</p>
+
+      <div class="grid" style="gap:var(--space-5); margin-bottom:var(--space-7);">
+        <div class="demo-box">
+          <div style="display:flex; align-items:baseline; gap:var(--space-3); margin-bottom:var(--space-3);">
+            <span style="font-family:var(--font-mono); font-size:13px; font-weight:500; color:var(--growthx-green);">01</span>
+            <h3 style="font-size:20px; font-weight:700; color:var(--ink);">Earn every element</h3>
+          </div>
+          <p style="font-size:15px; color:var(--ink-muted); line-height:1.7;">If it doesn't help the reader understand, navigate, or act, remove it. No decorative flourishes. No visual filler. White space is a feature.</p>
+        </div>
+        <div class="demo-box">
+          <div style="display:flex; align-items:baseline; gap:var(--space-3); margin-bottom:var(--space-3);">
+            <span style="font-family:var(--font-mono); font-size:13px; font-weight:500; color:var(--growthx-green);">02</span>
+            <h3 style="font-size:20px; font-weight:700; color:var(--ink);">Authority through restraint</h3>
+          </div>
+          <p style="font-size:15px; color:var(--ink-muted); line-height:1.7;">Navy + white + one accent. Generous whitespace. Clean type hierarchy. These sites should feel like a respected industry publication, not a marketing landing page.</p>
+        </div>
+        <div class="demo-box">
+          <div style="display:flex; align-items:baseline; gap:var(--space-3); margin-bottom:var(--space-3);">
+            <span style="font-family:var(--font-mono); font-size:13px; font-weight:500; color:var(--growthx-green);">03</span>
+            <h3 style="font-size:20px; font-weight:700; color:var(--ink);">Consistent across industries, distinct within each</h3>
+          </div>
+          <p style="font-size:15px; color:var(--ink-muted); line-height:1.7;">Layout, typography, and components are identical across all sites. Only the accent color, geometric pattern, and content change per industry. The system is the brand.</p>
+        </div>
+        <div class="demo-box">
+          <div style="display:flex; align-items:baseline; gap:var(--space-3); margin-bottom:var(--space-3);">
+            <span style="font-family:var(--font-mono); font-size:13px; font-weight:500; color:var(--growthx-green);">04</span>
+            <h3 style="font-size:20px; font-weight:700; color:var(--ink);">Reading-first</h3>
+          </div>
+          <p style="font-size:15px; color:var(--ink-muted); line-height:1.7;">720px content width. 17px body text. 1.75 line height. These are long-form articles for people who will actually read them. Optimize for reading, not scanning.</p>
+        </div>
+        <div class="demo-box">
+          <div style="display:flex; align-items:baseline; gap:var(--space-3); margin-bottom:var(--space-3);">
+            <span style="font-family:var(--font-mono); font-size:13px; font-weight:500; color:var(--growthx-green);">05</span>
+            <h3 style="font-size:20px; font-weight:700; color:var(--ink);">Funnel without friction</h3>
+          </div>
+          <p style="font-size:15px; color:var(--ink-muted); line-height:1.7;">CTAs present but never aggressive. The content itself is the conversion mechanism. If the content is good enough, readers will want to learn about GrowthX. Trust the work.</p>
+        </div>
+      </div>
+
+      <h3 style="font-size:18px; font-weight:700; margin-bottom:var(--space-5); color:var(--ink);">Do's and don'ts</h3>
+      <div class="do-dont" style="margin-bottom:var(--space-5);">
+        <div class="do-card">
+          <h4>Do</h4>
+          <p>Use generous white space between sections. Body text 17px with 1.75 line-height. Playbook Navy for emphasis only. Stagger scroll reveals by 75ms. Include hover states on all interactive elements. Keep article content at 720px max-width.</p>
+        </div>
+        <div class="dont-card">
+          <h4>Don't</h4>
+          <p>Use more than 2 accent colors per view. Add decorative elements without purpose. Use animations longer than 400ms for interactions. Set body text below 15px. Use stock photos or generic AI imagery. Break the Navy + Warm White + Green palette.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== CSS VARIABLES REFERENCE ====== -->
+  <section style="background:var(--ink); color:white;">
+    <div class="container">
+      <p class="section-label" style="color:rgba(255,255,255,0.4);">Reference</p>
+      <h2 class="section-title" style="color:white;">CSS custom properties</h2>
+      <p style="font-size:14px; color:rgba(255,255,255,0.5); margin-bottom:var(--space-5);">Copy this block into your project's global CSS.</p>
+      <div class="code-block" style="font-size:13px;">
+<span class="comment">/* Primary Palette */</span>
+<span class="prop">--playbook-navy</span>: <span class="val">#1B2B4B</span>;
+<span class="prop">--playbook-navy-light</span>: <span class="val">#2A3F6B</span>;
+<span class="prop">--warm-white</span>: <span class="val">#FAF9F7</span>;
+<span class="prop">--ink</span>: <span class="val">#1A1A2E</span>;
+<span class="prop">--growthx-green</span>: <span class="val">#28A745</span>;
+
+<span class="comment">/* Extended Palette */</span>
+<span class="prop">--navy-ghost</span>: <span class="val">#F0F2F7</span>;
+<span class="prop">--navy-pale</span>: <span class="val">#E1E5EF</span>;
+<span class="prop">--ink-muted</span>: <span class="val">#5A5A6E</span>;
+<span class="prop">--ink-faint</span>: <span class="val">#9A9AAE</span>;
+<span class="prop">--success</span>: <span class="val">#28A745</span>;
+<span class="prop">--warning</span>: <span class="val">#D4953A</span>;
+<span class="prop">--error</span>: <span class="val">#C74B4B</span>;
+
+<span class="comment">/* Industry Accents */</span>
+<span class="prop">--accent-construction</span>: <span class="val">#D97706</span>;
+<span class="prop">--accent-accounting</span>: <span class="val">#2563EB</span>;
+<span class="prop">--accent-wealth</span>: <span class="val">#065F46</span>;
+<span class="prop">--accent-healthcare</span>: <span class="val">#0891B2</span>;
+<span class="prop">--accent-educators</span>: <span class="val">#7C3AED</span>;
+<span class="prop">--accent-realestate</span>: <span class="val">#B91C1C</span>;
+
+<span class="comment">/* Typography */</span>
+<span class="prop">--font-display</span>: <span class="val">'Inter', sans-serif</span>;
+<span class="prop">--font-mono</span>: <span class="val">'JetBrains Mono', monospace</span>;
+
+<span class="comment">/* Spacing */</span>
+<span class="prop">--space-1</span>: <span class="val">4px</span>;   <span class="prop">--space-2</span>: <span class="val">8px</span>;
+<span class="prop">--space-3</span>: <span class="val">12px</span>;  <span class="prop">--space-4</span>: <span class="val">16px</span>;
+<span class="prop">--space-5</span>: <span class="val">24px</span>;  <span class="prop">--space-6</span>: <span class="val">32px</span>;
+<span class="prop">--space-7</span>: <span class="val">48px</span>;  <span class="prop">--space-8</span>: <span class="val">64px</span>;
+<span class="prop">--space-9</span>: <span class="val">96px</span>;
+
+<span class="comment">/* Border Radius */</span>
+<span class="prop">--radius-sm</span>: <span class="val">4px</span>;   <span class="prop">--radius-md</span>: <span class="val">8px</span>;
+<span class="prop">--radius-lg</span>: <span class="val">12px</span>;  <span class="prop">--radius-xl</span>: <span class="val">16px</span>;
+<span class="prop">--radius-pill</span>: <span class="val">999px</span>;
+
+<span class="comment">/* No shadows — use borders and background shifts for depth */</span>
+      </div>
+    </div>
+  </section>
+
+  <footer style="padding:var(--space-6); text-align:center; color:var(--ink-faint); font-size:13px;">
+    AI Playbook Network Brand Guidelines v1.0 &middot; GrowthX 2026
+  </footer>
+
+</body>
+</html>
